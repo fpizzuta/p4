@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body,
+html {
+    height: 100%;
+    background: #A13D0B;
+}
+.flexbox {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /*overflow: scroll;*/
+    height: 100%;
+}
+.flexbox .flexbox-col {
+    height: 100%;
+    /*flex: 1;*/
+}
+
+
+
+#sidebar {
+    background: #EDEBD4;
+    width:30%;
+    height:100%;
+}
+#page-content {
+    background: #A13D0B;
+    width:100%;
+    padding-left:10px;
+    padding-top:20px;
+}
+
+.wrapper {
+    width:100%;
+    height:100%;
+}
+
+.navmenu {
+    margin: auto 0;
+    background-color: grey;
+    /*justify-content: space-between;*/
+}
+.navlink {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height:100%;
+    /*justify-content: center;*/
+    /*margin: auto; */
+    font-size: 1.5em;
+    padding-top: 42px;
+    align-items: center;
+    /*width:30%;*/
+}
+.navlink a{
+    /*padding:15px;*/
+    text-decoration: none;
+    color:#A13D0B;
+    width:100%;
+}
+
+.link {
+    align-items: center;
+}
+
+#logo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.name {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    color:#A13D0B;
+}
+
+form {
+    /*margin-top: 50px;*/
+    margin-left: 10px;
+    /*background:#A13D0B;*/
+
+    width:30%;
+    color: #EDEBD4;
+    font-size: 1.5em;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.form-group {
+    margin-bottom:10px;
+}
+
+.form-group > input {
+    margin:5px 0px 5px 10px;
+}
+
+.form-check-input {
+    width:10%;
+}
+
+.form-control {
+    width:90%;
+}
+fieldset {
+    margin-bottom: 5px;
+    width: 100%
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: .5; /* Firefox */
+}
+
+input {
+    /*width: 90%;*/
+    width: 100%;
+    padding: 10px;
+    padding-left:0px;
+    padding-right:0px;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+
+}
+
+#button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn {
+    width:50%;
+    border: solid;
+    cursor:pointer;
+}
+
+/*Centering legend found here http://jsfiddle.net/QSmJb/3/*/
+.Fieldset
+{
+    border: 1px solid #EDEBD4;
+    border-radius: 5px;
+    padding: 10px;
+}
+.legend {
+    border: medium none;
+    margin-left: 40%;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    width: auto;
+    color: #EDEBD4;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-check-label {
+    font-size:.7em;
+}
+
+.labels {
+    font-size: 1em;
+}
+
+.list-container {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    text-transform: capitalize;
+    color: #EDEBD4;
+    font-size: 1.3em;
+    text-align: left;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.check-item {
+    text-transform: capitalize;
+    color: #EDEBD4;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.list-header {
+    text-transform: capitalize;
+    color: #EDEBD4;
+    font-size: 1.3em;
+    padding: 10px;
+    margin: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom: solid;
+    border-color: #EDEBD4;
+}
+
+#gameDate {
+    padding-left:40px;
+    font-size: 1.3em;
+}
+
+#gameName {
+    font-size: 1.3em;
+}
+
+.menu-link:link {
+    color:#A13D0B;
+}
+
+a:link {
+    color: #EDEBD4;
+    text-decoration: none;
+}
+
+.active {
+    font-size: 1.3em;
+}
+
+.error {
+    color:red;
+    font-size: .5em;
+    background-color:  #EDEBD4;
+}
