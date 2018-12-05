@@ -18,26 +18,21 @@ class CreateRecordsTable extends Migration
             $table->timestamps();
             $table->integer('createdBy');
             $table->date('date');
-            $table->integer('gameID');
-            $table->integer('p1_ID');
+            $table->integer('game_id');
+            $table->integer('p1_id');
             $table->integer('p1_Score');
             $table->binary('p1_Winner');
-            $table->integer('p2_ID');
-            $table->integer('p2_Score');
-            $table->binary('p2_Winner');
-            $table->integer('p3_ID');
-            $table->integer('p3_Score');
-            $table->binary('p3_Winner');
-            $table->integer('p4_ID');
-            $table->integer('p4_Score');
-            $table->binary('p4_Winner');
+            $table->integer('p2_id')->nullable();
+            $table->integer('p2_Score')->nullable();
+            $table->binary('p2_Winner')->nullable();
+            $table->integer('p3_id')->nullable();
+            $table->integer('p3_Score')->nullable();
+            $table->binary('p3_Winner')->nullable();
+            $table->integer('p4_id')->nullable();
+            $table->integer('p4_Score')->nullable();
+            $table->binary('p4_Winner')->nullable();
 
-//            $table->foreign('createdBy')->references('userId')->on('players');
-//            $table->foreign('gameID')->references('gameID')->on('games');
-//            $table->foreign('p1_ID')->references('userId')->on('players');
-//            $table->foreign('p2_ID')->references('userId')->on('players');
-//            $table->foreign('p3_ID')->references('userId')->on('players');
-//            $table->foreign('p4_ID')->references('userId')->on('players');
+
         });
     }
 
