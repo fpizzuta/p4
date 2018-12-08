@@ -13,14 +13,14 @@ class CreateForeignkeys extends Migration
      */
     public function up()
     {
-        Schema::table('records', function (Blueprint $table) {
-            $table->foreign('createdBy')->references('player_id')->on('players');
-            $table->foreign('game_id')->references('game_id')->on('games');
-            $table->foreign('p1_id')->references('player_id')->on('players');
-            $table->foreign('p2_id')->references('player_id')->on('players');
-            $table->foreign('p3_id')->references('player_id')->on('players');
-            $table->foreign('p4_id')->references('player_id')->on('players');
-        });
+//        Schema::table('records', function (Blueprint $table) {
+//            $table->foreign('createdBy')->references('player_id')->on('players');
+//            $table->foreign('game_id')->references('game_id')->on('games');
+//            $table->foreign('p1_id')->references('player_id')->on('players');
+//            $table->foreign('p2_id')->references('player_id')->on('players');
+//            $table->foreign('p3_id')->references('player_id')->on('players');
+//            $table->foreign('p4_id')->references('player_id')->on('players');
+//        });
     }
 
     /**

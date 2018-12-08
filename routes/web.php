@@ -20,6 +20,8 @@ Route::get('/newgame2', 'GameController@create2');
 Route::get('/user/{name}', 'UserController@show');
 Route::get('/users', 'UserController@index');
 
+Route::get('/practice','UserController@practice');
+
 Route::get('/debug', function () {
 
     $debug = [

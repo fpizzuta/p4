@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Record;
+use App\Player;
 
 class UserController extends Controller
 {
@@ -33,5 +35,12 @@ class UserController extends Controller
     public function show()
     {
         return view('users.showAll');
+    }
+
+    public function practice()
+    {
+        $p1= Record::find(2)->player;
+        dump($p1->userName);
+
     }
 }
