@@ -22,6 +22,7 @@ class RecordsTableSeeder extends Seeder
             $record = new Record();
             $record->created_at = Carbon\Carbon::now()->toDateTimeString();
             $record->updated_at = Carbon\Carbon::now()->toDateTimeString();
+
             $record->game_id = $recordData[0];
             $record->date = $recordData[1];
             $record->createdBy = $recordData[2];

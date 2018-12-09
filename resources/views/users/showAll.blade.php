@@ -14,8 +14,8 @@
         <div class='list-container'>
             <div class='list'>
                 <div class="list-header">All Users</div>
-                @foreach($data as $user)
-                    <div class="check-item">{{ $user }}</div>
+                @foreach($players as $player)
+                    <div class="check-item">{{ $player->userName }}</div>
                 @endforeach
             </div>
         </div>

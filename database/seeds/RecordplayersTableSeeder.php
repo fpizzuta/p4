@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Record_Players;
-
-class Record_PlayersTableSeeder extends Seeder
+use App\Recordplayers;
+class RecordplayersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,7 +25,7 @@ class Record_PlayersTableSeeder extends Seeder
         ];
 
         foreach ($records as $key => $recordData) {
-            $record = new Record_Players();
+            $record = new Recordplayers();
             $record->created_at = Carbon\Carbon::now()->toDateTimeString();
             $record->updated_at = Carbon\Carbon::now()->toDateTimeString();
             $record->record_id = $recordData[0];

@@ -15,7 +15,7 @@
             <div class='list'>
                 <div class="list-header">Title</div>
                 @foreach($data as $game)
-                     <div class="list-item"><a target="_self" href="games/{{$game['id']}}">{{$game['gameName']}}</a></div>
+                     <div class="list-item"><a target="_self" href="games/{{$game->record_id}}">{{$game->game->gameName}}</a></div>
                 @endforeach
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class='list'>
                 <div class="list-header">Date</div>
                 @foreach($data as $game)
-                    <div class="list-item">{{$game['date']}}</div>
+                    <div class="list-item">{{$game->date}}</div>
                 @endforeach
             </div>
         </div>

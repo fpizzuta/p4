@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Storage;
+use App\Record;
+use App\Recordplayers;
 
 class GameController extends Controller
 {
@@ -11,23 +13,30 @@ class GameController extends Controller
 
     public function index()
     {
-        $json = file_get_contents(database_path('/games.json'));
-        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
-//        dump($data);
+//        $json = file_get_contents(database_path('/games.json'));
+//        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
+////        dump($data);
+//        return view('games.showAll')->with('data',$data);
+        $data = Record::orderBy('created_at')->with('game')->get();
+        dump($data->first()->game->gameName);
         return view('games.showAll')->with('data',$data);
     }
 
     public function show($title = null)
     {
-        dump($title);
-        $json = file_get_contents(database_path('/games.json'));
-        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
-        foreach ($data as $game)
-        {
-            if ($game['id']==$title) {
-                return view('games.show')->with(['match' => $game]);
-            }
-        }
+//        dump($title);
+//        $json = file_get_contents(database_path('/games.json'));
+//        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
+//        foreach ($data as $game)
+//        {
+//            if ($game['id']==$title) {
+//                return view('games.show')->with(['match' => $game]);
+//            }
+//        }
+        $record = Record::where('record_id',$title)->with('game')->get();
+        $pivot = Recordplayers::where('record_id',$title)->orderby('position')->with('playerName')->get();
+        dump($record[0]);
+        return view('games.show')->with(['match' => $pivot],['record'=>$record[0]]);
     }
 
     public function create()
