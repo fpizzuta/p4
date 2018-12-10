@@ -12,9 +12,15 @@
         <form method='POST' action='/games'>
             @csrf
             <div class="form-group">
-                <label class='labels' for='gameName'>Game Name *</label>
-                <input type="text" class='form-control' name="gameName" placeholder="Game" value="{{ old('gameName') }}">
-                @include('modules.field-error', ['field' => 'gameName'])
+                <label class='labels' for='game_id'>Game Name *</label>
+                <select name='game_id' class='form-control'>
+                    <option value=''>Choose one...</option>
+                     @foreach($games as $game)
+                        <option value='{{$game->game_id}}' {{(old('game_id') == $game->game_id) ? 'selected' : '' }}>{{$game->gameName}}</option>
+                     @endforeach
+                 </select>
+                {{--<input type="text" class='form-control' name="gameName" placeholder="Game" value="{{ old('gameName') }}">--}}
+                @include('modules.field-error', ['field' => 'game_id'])
             </div>
             <div class="form-group">
                 <label class='labels' for='date'>Date *</label>
@@ -23,9 +29,16 @@
             </div>
             <div>
                 <fieldset class='Fieldset'>
-                    <legend class='legend'>Player 1</legend>
+                    <legend class='legend'>Player 1 *</legend>
                     <div class="form-group">
-                        <input type="text" class='form-control' name="p1_Name" placeholder='Player 1 Name *' value="{{ old('p1_Name') }}"/>
+                        {{--<input type="text" class='form-control' name="p1_Name" placeholder='Player 1 Name *' value="{{ old('p1_Name') }}"/>--}}
+                        <select name='p1_Name' class='form-control'>
+                            <option value=''>Choose one...</option>
+                            @foreach($players as $player)
+                                <option value='{{$player->player_id}}' {{(old('p1_Name') == $player->player_id) ? 'selected' : '' }}>{{$player->userName}}</option>
+                                {{--<option value='{{$player->player_id}}'>{{$player->userName}}</option>--}}
+                            @endforeach
+                        </select>
                         @include('modules.field-error', ['field' => 'p1_Name'])
                     </div>
                     <div class="form-group">
@@ -33,10 +46,11 @@
                         @include('modules.field-error', ['field' => 'p1_Score'])
                     </div>
                     <div class="form-group">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"  name="p1_Winner" value="{{ old('p1_Winner') }}"/>
+                        <label class="form-check-label" for='p1_Winner'>
+                            <input class="form-check-input" type="checkbox"  name="p1_Winner" value=1 {{ (old('p1_Winner') == 1) ? 'checked':'' }}/>
                             Winner
                         </label>
+
                     </div>
                 </fieldset>
             </div>
@@ -44,7 +58,14 @@
                 <fieldset class='Fieldset'>
                     <legend class='legend'>Player 2</legend>
                     <div class="form-group">
-                        <input type="text" class='form-control' name="p2_Name" placeholder='Player 2 Name' value="{{ old('p2_Name') }}"/>
+                        {{--<input type="text" class='form-control' name="p2_Name" placeholder='Player 2 Name' value="{{ old('p2_Name') }}"/>--}}
+                        <select name='p2_Name' class='form-control'>
+                            <option value='0'>Choose one...</option>
+                            @foreach($players as $player)
+                                <option value='{{$player->player_id}}' {{(old('p2_Name') == $player->player_id) ? 'selected' : '' }}>{{$player->userName}}</option>
+                                {{--<option value='{{$player->player_id}}'>{{$player->userName}}</option>--}}
+                            @endforeach
+                        </select>
                         @include('modules.field-error', ['field' => 'p2_Name'])
                     </div>
                     <div class="form-group">
@@ -52,10 +73,11 @@
                         @include('modules.field-error', ['field' => 'p2_Score'])
                     </div>
                     <div class="form-group">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"  name="p2_Winner" value="{{ old('p2_Winner') }}"/>
+                        <label class="form-check-label" for='p2_Winner'>
+                            <input class="form-check-input" type="checkbox"  name="p2_Winner" value=1 {{ (old('p2_Winner') == 1) ? 'checked':'' }}/>
                             Winner
                         </label>
+
                     </div>
                 </fieldset>
             </div>
@@ -63,7 +85,14 @@
                 <fieldset class='Fieldset'>
                     <legend class='legend'>Player 3</legend>
                     <div class="form-group">
-                        <input type="text" class='form-control' name="p3_Name" placeholder='Player 3 Name' value="{{ old('p3_Name') }}"/>
+                        {{--<input type="text" class='form-control' name="p3_Name" placeholder='Player 3 Name' value="{{ old('p3_Name') }}"/>--}}
+                        <select name='p3_Name' class='form-control'>
+                            <option value='0'>Choose one...</option>
+                            @foreach($players as $player)
+                                <option value='{{$player->player_id}}' {{(old('p3_Name') == $player->player_id) ? 'selected' : '' }}>{{$player->userName}}</option>
+                                {{--<option value='{{$player->player_id}}'>{{$player->userName}}</option>--}}
+                            @endforeach
+                        </select>
                         @include('modules.field-error', ['field' => 'p3_Name'])
                     </div>
                     <div class="form-group">
@@ -71,10 +100,11 @@
                         @include('modules.field-error', ['field' => 'p3_Score'])
                     </div>
                     <div class="form-group">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"  name="p3_Winner" value="{{ old('p3_Winner') }}"/>
+                        <label class="form-check-label" for='p3_Winner'>
+                            <input class="form-check-input" type="checkbox"  name="p3_Winner" value=1 {{ (old('p3_Winner') == 1) ? 'checked':'' }}/>
                             Winner
                         </label>
+
                     </div>
                 </fieldset>
             </div>
@@ -82,7 +112,14 @@
                 <fieldset class='Fieldset'>
                     <legend class='legend'>Player 4</legend>
                     <div class="form-group">
-                        <input type="text" class='form-control' name="p4_Name" placeholder='Player 4 Name' value="{{ old('p4_Name') }}"/>
+                        {{--<input type="text" class='form-control' name="p4_Name" placeholder='Player 4 Name' value="{{ old('p4_Name') }}"/>--}}
+                        <select name='p4_Name' class='form-control'>
+                            <option value='0'>Choose one...</option>
+                            @foreach($players as $player)
+                                <option value='{{$player->player_id}}' {{(old('p4_Name') == $player->player_id) ? 'selected' : '' }}>{{$player->userName}}</option>
+{{--                                <option value='{{$player->player_id}}'>{{$player->userName}}</option>--}}
+                            @endforeach
+                        </select>
                         @include('modules.field-error', ['field' => 'p4_Name'])
                     </div>
                     <div class="form-group">
@@ -90,10 +127,11 @@
                         @include('modules.field-error', ['field' => 'p4_Score'])
                     </div>
                     <div class="form-group">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"  name="p4_Winner" value="{{ old('p4_Winner') }}"/>
+                        <label class="form-check-label" for='p4_Winner'>
+                            <input class="form-check-input" type="checkbox"  name="p4_Winner" value=1 {{ (old('p4_Winner') == 1) ? 'checked':'' }}/>
                             Winner
                         </label>
+
                     </div>
                 </fieldset>
             </div>

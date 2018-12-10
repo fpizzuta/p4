@@ -19,7 +19,7 @@ class CreateRecordplayersTable extends Migration
             $table->integer('record_id')->unsigned();
             $table->integer('player_id')->unsigned();
             $table->integer('position');
-            $table->integer('score');
+            $table->integer('score')->nullable();
             $table->integer('winner');
         });
     }

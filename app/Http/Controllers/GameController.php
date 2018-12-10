@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Storage;
 use App\Record;
 use App\Recordplayers;
+use App\Player;
+use App\Game;
 
 class GameController extends Controller
 {
@@ -19,60 +21,75 @@ class GameController extends Controller
 //        return view('games.showAll')->with('data',$data);
         $data = Record::orderBy('created_at')->with('game')->get();
         dump($data->first()->game->gameName);
-        return view('games.showAll')->with('data',$data);
+
+        return view('games.showAll')->with('data', $data);
     }
 
     public function show($title = null)
     {
-//        dump($title);
-//        $json = file_get_contents(database_path('/games.json'));
-//        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
-//        foreach ($data as $game)
-//        {
-//            if ($game['id']==$title) {
-//                return view('games.show')->with(['match' => $game]);
-//            }
-//        }
-        $record = Record::where('record_id',$title)->with('game')->get();
-        $pivot = Recordplayers::where('record_id',$title)->orderby('position')->with('playerName')->get();
-        dump($record[0]);
-        return view('games.show')->with(['match' => $pivot],['record'=>$record[0]]);
+        $record = Record::where('record_id', $title)->with('game')->get();
+        $pivot = Recordplayers::where('record_id', $title)->orderby('position')->with('playerName')->get();
+        dump($record);
+        dump($pivot);
+
+        return view('games.show')->with(['match' => $pivot, 'record' => $record[0]]);
     }
 
     public function create()
     {
-        return view('games.create');
+        $players = Player::orderBy('userName')->get();
+        $games = Game::orderBy('gameName')->get();
+        return view('games.create')->with(['players' => $players, 'games' => $games]);
     }
-    public function create2()
-    {
-        return view('games.create2');
-    }
+
+
+
     public function store(Request $request)
     {
-
         $request->validate([
-            'gameName' => 'required',
+            'game_id' => 'required',
             'date' => 'required|date',
-            'p1_Name' => 'required|alpha_num',
-            'p1_score' => 'nullable|digits',
-            'p2_Name' => 'nullable|alpha_num',
-            'p2_score' => 'nullable|digits',
-            'p3_Name' => 'nullable|alpha_num',
-            'p3_score' => 'nullable|digits',
-            'p4_Name' => 'nullable|alpha_num',
-            'p4_score' => 'nullable|digits'
+            'p1_Name' => 'required',
+            'p1_Score' => 'nullable|digits',
+            'p2_Score' => 'nullable|digits',
+            'p3_Score' => 'nullable|digits',
+            'p4_Score' => 'nullable|digits',
         ]);
-        $json = file_get_contents(database_path('games.json'));
-        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
-        //$data += [$request->all()];
-        $request['id'] = random_int(1,1000000);
-        array_push($data, $request->all());
-//        dump($request->all());
-//        dump($data);
-        try {
-            file_put_contents(database_path('games.json'), json_encode($data));
-        } catch (\Exception $e) {};
-//        return redirect('games');
+
+        $record = new Record();
+        $record->date = $request->date;
+        $record->game_id = $request->game_id;
+        //Change to the user id if I ever get login working
+        $record->createdBy = 1;
+        $record->save();
+        //Grab the id of the record just made.
+        $record_id = $record->record_id;
+        //Create a recordplayer for each player in game
+        $players = [[$request->p1_Name,1,$request->p1_Score,$request->p1_Winner],
+                    [$request->p2_Name,2,$request->p2_Score,$request->p2_Winner],
+                    [$request->p3_Name,3,$request->p3_Score,$request->p3_Winner],
+                    [$request->p4_Name,4,$request->p4_Score,$request->p4_Winner],
+        ];
+        foreach ($players as $player)
+        {
+            if ($player[0])
+            {
+                $rp = new Recordplayers;
+                $rp->record_id = $record_id;
+                $rp->player_id = $player[0];
+                $rp->position = $player[1];
+                $rp->score = $player[2];
+                if ($player[3]) {
+                    $rp->winner = 1;
+                } else
+                {
+                    $rp->winner = 0;
+                }
+
+                $rp->save();
+            }
+        }
+
         return redirect("/games");
     }
 }
