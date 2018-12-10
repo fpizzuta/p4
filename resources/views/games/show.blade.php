@@ -19,7 +19,7 @@
                 <div class="list-header">Player</div>
 
                 @foreach($match as $player)
-                    <div class="list-item">{{$player->playerName}}</div>
+                    <div class="list-item">{{$player->playerName->userName}}</div>
                 @endforeach
             </div>
         </div>
@@ -39,6 +39,13 @@
                 @foreach($match as $winner)
                     <div class="check-item">@if ($winner->winner == 1) <i class="fas fa-check-circle"></i> @else &nbsp; @endif</div>
                 @endforeach
+            </div>
+        </div>
+        <div class='list-container'>
+            <div class='list'>
+                <div class="check-item">
+                    <a href='/game/edit/{{$record->record_id}}'>Edit</a>
+                </div>
             </div>
         </div>
     </div>

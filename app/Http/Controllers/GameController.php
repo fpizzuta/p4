@@ -20,7 +20,6 @@ class GameController extends Controller
 ////        dump($data);
 //        return view('games.showAll')->with('data',$data);
         $data = Record::orderBy('created_at')->with('game')->get();
-        dump($data->first()->game->gameName);
 
         return view('games.showAll')->with('data', $data);
     }
@@ -29,17 +28,70 @@ class GameController extends Controller
     {
         $record = Record::where('record_id', $title)->with('game')->get();
         $pivot = Recordplayers::where('record_id', $title)->orderby('position')->with('playerName')->get();
-        dump($record);
-        dump($pivot);
 
         return view('games.show')->with(['match' => $pivot, 'record' => $record[0]]);
+
     }
 
+    public function edit($id = null)
+    {
+        $record = Record::where('record_id', $id)->with('game')->get();
+        $pivot = Recordplayers::where('record_id', $id)->orderby('position')->with('playerName')->get();
+        $games = Game::orderBy('gameName')->get();
+        $players = Player::orderBy('userName')->get();
+        return view('games.edit')->with(['match' => $pivot, 'record' => $record[0], 'games' => $games, 'players' => $players]);
+    }
     public function create()
     {
         $players = Player::orderBy('userName')->get();
         $games = Game::orderBy('gameName')->get();
         return view('games.create')->with(['players' => $players, 'games' => $games]);
+    }
+
+    public function makeArray($request)
+    {
+        $players = [[$request->p1_Name,1,$request->p1_Score,$request->p1_Winner],
+            [$request->p2_Name,2,$request->p2_Score,$request->p2_Winner],
+            [$request->p3_Name,3,$request->p3_Score,$request->p3_Winner],
+            [$request->p4_Name,4,$request->p4_Score,$request->p4_Winner],
+        ];
+        return $players;
+    }
+
+    public function update(Request $request, $record_id)
+    {
+        $request->validate([
+            'game_id' => 'required',
+            'date' => 'required|date',
+            'p1_Name' => 'required',
+        ]);
+        $record = Record::find($record_id);
+        dump($record->game_id);
+        $record->date = $request->date;
+        $record->game_id = (int)$request->game_id;
+        $record->save();
+        $players = GameController::makeArray($request);
+        $position = 1;
+        foreach ($players as $player)
+        {
+            if ($player[0])
+            {
+                $rp = new Recordplayers;
+                $rp->record_id = $record_id;
+                $rp->player_id = $player[0];
+                $rp->position = $position;
+                $rp->score = $player[2];
+                if ($player[3]) {
+                    $rp->winner = 1;
+                } else
+                {
+                    $rp->winner = 0;
+                }
+
+                $rp->save();
+            }
+        }
+        return redirect('/games/'.$record_id);
     }
 
 
@@ -50,10 +102,10 @@ class GameController extends Controller
             'game_id' => 'required',
             'date' => 'required|date',
             'p1_Name' => 'required',
-            'p1_Score' => 'nullable|digits',
-            'p2_Score' => 'nullable|digits',
-            'p3_Score' => 'nullable|digits',
-            'p4_Score' => 'nullable|digits',
+            'p1_Score' => 'nullable|numeric',
+            'p2_Score' => 'nullable|numeric',
+            'p3_Score' => 'nullable|numeric',
+            'p4_Score' => 'nullable|numeric',
         ]);
 
         $record = new Record();

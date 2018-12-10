@@ -13,6 +13,6 @@ class Recordplayers extends Model
 
     public function playerName()
     {
-        return $this->hasOne('App\Player','player_id');
+        return $this->hasOne('App\Player','player_id','player_id');
     }
 }
