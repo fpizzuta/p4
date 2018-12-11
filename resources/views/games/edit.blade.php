@@ -126,9 +126,6 @@
                         <div>
                             <input class='edit-button' type='submit' value='Save'/>
                         </div>
-                        <div>
-                            <input class='edit-button' type='submit' value='Delete'/>
-                        </div>
                     </div>
 
             </form>

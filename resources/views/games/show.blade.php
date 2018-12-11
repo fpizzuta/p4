@@ -48,6 +48,13 @@
                 </div>
             </div>
         </div>
+        <div class='list-container'>
+            <div class='list'>
+                <div class="check-item">
+                    <a href='/game/delete/{{$record->record_id}}'>Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endpush

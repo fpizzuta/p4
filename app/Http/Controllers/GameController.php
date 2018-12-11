@@ -33,6 +33,13 @@ class GameController extends Controller
 
     }
 
+    public function delete($id = null)
+    {
+        Recordplayers::where('record_id',$id)->delete();
+        Record::where('record_id',$id)->delete();
+        return redirect('/games');
+    }
+
     public function edit($id = null)
     {
         $record = Record::where('record_id', $id)->with('game')->get();
@@ -41,6 +48,7 @@ class GameController extends Controller
         $players = Player::orderBy('userName')->get();
         return view('games.edit')->with(['match' => $pivot, 'record' => $record[0], 'games' => $games, 'players' => $players]);
     }
+
     public function create()
     {
         $players = Player::orderBy('userName')->get();

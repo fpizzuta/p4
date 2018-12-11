@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', 'AuthenticateController@login');
+Route::get('/', 'GameController@index');
 Route::get('/games', 'GameController@index');
 Route::post('/games', 'GameController@store');
 Route::post('/update/{record_id}', 'GameController@update');
 Route::get('/games/{title}', 'GameController@show');
-Route::get('game/edit/{id}','GameController@edit');
+Route::get('/game/edit/{id}','GameController@edit');
+Route::get('/game/delete/{id}','GameController@delete');
 Route::get('/newgame', 'GameController@create');
 Route::get('/newgame2', 'GameController@create2');
 Route::get('/user/{name}', 'UserController@show');
