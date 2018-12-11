@@ -409,3 +409,11 @@ input.edit-button:hover {
 .cancel > a:hover {
     color:yellow;
 }
+
+.wrapper * a:visited {
+    color:white;
+}
+
+.wrapper * a:hover {
+    color:yellow;
+}
