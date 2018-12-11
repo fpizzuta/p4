@@ -33,11 +33,17 @@ class GameController extends Controller
 
     }
 
+    public function confirm($id = null)
+    {
+        $record = Record::where('record_id', $id)->with('game')->get();
+        return view('games.confirm')->with(['record' => $record[0]]);
+    }
+
     public function delete($id = null)
     {
         Recordplayers::where('record_id',$id)->delete();
         Record::where('record_id',$id)->delete();
-        return redirect('/games');
+        return redirect('/games')->with(['alert'=>'The record was deleted.']);
     }
 
     public function edit($id = null)
@@ -82,7 +88,7 @@ class GameController extends Controller
         Recordplayers::where('record_id',$record_id)->delete();
         //Using position count in case someone dropped a player and didnt update sequence. Players will then be ordered sequentially again
         $position = 1;
-        dump($players);
+
         foreach ($players as $player)
         {
             if ($player[0]) {
@@ -101,7 +107,7 @@ class GameController extends Controller
             }
 
         }
-        return redirect('/games/'.$record_id);
+        return redirect('/games/'.$record_id)->with(['alert' => 'Edit saved.']);
     }
 
 
@@ -152,6 +158,6 @@ class GameController extends Controller
             }
         }
 
-        return redirect("/games");
+        return redirect("/games")->with(['alert'=>'Your record was created.']);
     }
 }

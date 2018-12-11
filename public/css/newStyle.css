@@ -269,7 +269,7 @@ a:link {
 .edit-list-item {
     /*text-transform: capitalize;*/
     color: #EDEBD4;
-    font-size: 1.3em;
+    font-size: 1em;
     text-align: left;
     padding: 10px;
     margin: 1px;
@@ -282,7 +282,7 @@ a:link {
 .edit-list-header {
     text-transform: capitalize;
     color: #EDEBD4;
-    font-size: 1.3em;
+    font-size: 1em;
     padding: 10px;
     margin: 1px;
     display: flex;
@@ -294,12 +294,12 @@ a:link {
 }
 
 select {
-    font-size : 1.1em;
+    font-size : 1em;
     height:50px;
 }
 
 .edit-list-item > input{
-    font-size:1.1em;
+    font-size:1em;
     color:black;
     background-color: white;
     border:none;
@@ -339,7 +339,7 @@ select {
 .edit-buttons {
     text-transform: capitalize;
     color: #EDEBD4;
-    font-size: 1.3em;
+    font-size: 1.1em;
     padding: 10px;
     margin: 1px;
     display: flex;
@@ -361,3 +361,51 @@ input.edit-button:hover {
     color:yellow;
 }
 
+.alert {
+    background-color: yellow;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center {
+    height:60%;
+    margin-left:20px;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.center-item {
+    width:auto;
+
+}
+
+.confirmDelete {
+    margin-top:10px;
+    width:auto;
+    background-color:orangered;
+}
+
+.cancel {
+    color:white;
+    text-decoration: none;
+    width:auto;
+    padding:5px;
+}
+
+
+
+.cancel > a:visited, .center-item > a:visited {
+    color:white;
+}
+.cancel > a:hover {
+    color:yellow;
+}

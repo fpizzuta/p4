@@ -37,7 +37,7 @@ __Delete__
   + Observe game is no longer shown in main list
 
 ## Outside resources
-
++ <https://giphy.com/gifs/airplane-i-am-serious-surely-you-cant-be-3oEjHLzm4BCF8zfPy0/embed>
 
 ## Code style divergences
 *List any divergences from PSR-1/PSR-2 and course guidelines on code style*
