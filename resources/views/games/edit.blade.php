@@ -32,7 +32,7 @@
                     </span>
                     <span>
                         <div>
-                             <input  id='date' type="date" name="date" value="{{$record->date}}">
+                             <input id='date' type="date" name="date" value="{{$record->date}}">
                             @include('modules.field-error', ['field' => 'date'])
                         </div>
                     </span>
@@ -52,49 +52,84 @@
 
                                     @endforeach
                                 </select>
-                               @include('modules.field-error', ['field' => 'p'.$player->position.'_Name'])
+                                @include('modules.field-error', ['field' => 'p'.$player->position.'_Name'])
                             </div>
                         @endforeach
+                        {{-- If someone edits a record with less than 4 players you need to add the missing rows so they can add additional players--}}
+                        @if (count($match) < 3)
+                            @for($i=count($match)+1;$i<=4;$i++)
+                                <div class="edit-list-item">
+                                    <select name='p{{$i}}_Name' class='form-control'>
+                                        <option value=''>Choose one...</option>
+                                        @foreach($players as $item)
+                                            <option value='{{$item->player_id}}' }}>{{$item->userName}}</option>
+                                        @endforeach
+                                    </select>
+                                    @include('modules.field-error', ['field' => 'p'.$i.'_Name'])
+                                </div>
+                            @endfor
+                        @endif
                     </div>
                 </div>
-                <div class='edit-list-container'>
-                    <div class='edit-list'>
-                        <div class="edit-list-header">Score</div>
 
-                        @foreach($match as $score)
-                            <div class="edit-list-item">
+                    <div class='edit-list-container'>
+                        <div class='edit-list'>
+                            <div class="edit-list-header">Score</div>
 
-                                <input type="number"
-                                       name="p{{$score->position}}_Score"
-                                       value='{{$score->score}}'/>
-                                @include('modules.field-error', ['field' => 'p'.$score->position.'_Score'])
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class='edit-list-container'>
-                    <div class='edit-list'>
-                        <div class="edit-list-header">Winner</div>
+                            @foreach($match as $score)
+                                <div class="edit-list-item">
 
-                        @foreach($match as $winner)
-                            <div class="edit-list-item">
+                                    <input type="number"
+                                           name="p{{$score->position}}_Score"
+                                           value='{{$score->score}}'/>
+                                    @include('modules.field-error', ['field' => 'p'.$score->position.'_Score'])
+                                </div>
+                            @endforeach
+                            @if (count($match) < 3)
+                                @for($i=count($match)+1;$i<=4;$i++)
+                                    <div class="edit-list-item">
+                                        <input type="number"
+                                               name="p{{$i}}_Score"
+                                        />
+                                        @include('modules.field-error', ['field' => 'p'.$i.'_Score'])
+                                    </div>
+                                @endfor
+                            @endif
+                        </div>
+                    </div>
+                    <div class='edit-list-container'>
+                        <div class='edit-list'>
+                            <div class="edit-list-header">Winner</div>
 
-                                <input class="edit-form-check-input"
-                                       type="checkbox"
-                                       name="p{{$winner->position}}_Winner"
-                                       value=1 {{($winner->winner == 1) ? 'checked' : ''}}/>
-                            </div>
-                        @endforeach
+                            @foreach($match as $winner)
+                                <div class="edit-list-item">
+
+                                    <input class="edit-form-check-input"
+                                           type="checkbox"
+                                           name="p{{$winner->position}}_Winner"
+                                           value=1 {{($winner->winner == 1) ? 'checked' : ''}}/>
+                                </div>
+                            @endforeach
+                            @if (count($match) < 3)
+                                @for($i=count($match)+1;$i<=4;$i++)
+                                    <div class="edit-list-item">
+                                        <input class="edit-form-check-input"
+                                               type="checkbox"
+                                               name="p{{$i}}_Winner"
+                                               value=1}}/>
+                                    </div>
+                                @endfor
+                            @endif
+                        </div>
                     </div>
-                </div>
-                <div class='edit-buttons'>
-                    <div>
-                        <input class='edit-button' type='submit' value='Save'/>
+                    <div class='edit-buttons'>
+                        <div>
+                            <input class='edit-button' type='submit' value='Save'/>
+                        </div>
+                        <div>
+                            <input class='edit-button' type='submit' value='Delete'/>
+                        </div>
                     </div>
-                    <div>
-                        <input class='edit-button' type='submit' value='Delete'/>
-                    </div>
-                </div>
 
             </form>
         </div>

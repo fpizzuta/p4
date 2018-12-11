@@ -66,30 +66,32 @@ class GameController extends Controller
             'p1_Name' => 'required',
         ]);
         $record = Record::find($record_id);
-        dump($record->game_id);
         $record->date = $request->date;
         $record->game_id = (int)$request->game_id;
         $record->save();
         $players = GameController::makeArray($request);
+        //Because i dont know if a user was removed I drop all recordplayers associated with record and then create new ones
+        Recordplayers::where('record_id',$record_id)->delete();
+        //Using position count in case someone dropped a player and didnt update sequence. Players will then be ordered sequentially again
         $position = 1;
+        dump($players);
         foreach ($players as $player)
         {
-            if ($player[0])
-            {
+            if ($player[0]) {
                 $rp = new Recordplayers;
                 $rp->record_id = $record_id;
                 $rp->player_id = $player[0];
                 $rp->position = $position;
+                $position = $position + 1;
                 $rp->score = $player[2];
                 if ($player[3]) {
                     $rp->winner = 1;
-                } else
-                {
+                } else {
                     $rp->winner = 0;
                 }
-
                 $rp->save();
             }
+
         }
         return redirect('/games/'.$record_id);
     }
