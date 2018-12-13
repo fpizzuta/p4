@@ -18,6 +18,12 @@
                     <div class="check-item">{{ $player->userName }}</div>
                 @endforeach
             </div>
+            <div class='list'>
+                <div class="list-header">Total Games</div>
+                @foreach($players as $player)
+                    <div class="check-item">{{ $player->count }}</div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>

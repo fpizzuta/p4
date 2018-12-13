@@ -38,6 +38,7 @@ __Delete__
 
 ## Outside resources
 + <https://giphy.com/gifs/airplane-i-am-serious-surely-you-cant-be-3oEjHLzm4BCF8zfPy0/embed>
++ <https://laracasts.com/discuss/channels/laravel/how-to-add-a-new-element-to-every-item-of-collection?page=1>
 
 ## Code style divergences
 *List any divergences from PSR-1/PSR-2 and course guidelines on code style*

@@ -15,11 +15,8 @@ class GameController extends Controller
 
     public function index()
     {
-//        $json = file_get_contents(database_path('/games.json'));
-//        $data = (json_decode($json,true) == null) ? array() : json_decode($json,true);
-////        dump($data);
-//        return view('games.showAll')->with('data',$data);
-        $data = Record::orderBy('created_at')->with('game')->get();
+
+        $data = Record::orderBy('date','desc')->with('game')->get();
 
         return view('games.showAll')->with('data', $data);
     }
