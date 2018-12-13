@@ -31,7 +31,7 @@ class UserController extends Controller
            //add a count field to that player with their total number of games
            $players[$key->keys()[0]]['count'] = $count->total;
         }
-        dump($players);
+
         return view('users.showAll')->with(['players' => $players]);
     }
 

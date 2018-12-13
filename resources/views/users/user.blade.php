@@ -1,5 +1,6 @@
 @extends('layouts.pages')
 
+@push('title')<title>{{ $name }} profile page</title>@endpush
 @push('styles')
     {{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
     <link href='{{ asset('css/newStyle.css') }}' rel='stylesheet'>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    @stack('title')
     @stack('styles')
 </head>
 <body>

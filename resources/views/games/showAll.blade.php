@@ -8,6 +8,8 @@
 
 @endpush
 
+@push('title')<title>All Games</title>@endpush
+
 @push('body')
 <div class='wrapper'>
     <div id="page-content" class="page-content flexbox-col">

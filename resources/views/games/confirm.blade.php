@@ -1,5 +1,6 @@
 @extends('layouts.pages2')
 
+@push('title')<title>Confirm delete of {{$record->game->gameName}}</title>@endpush
 @push('styles')
     {{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
     {{--<link href='{{ asset('css/page.css') }}' rel='stylesheet'>--}}
