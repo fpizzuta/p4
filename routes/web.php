@@ -20,12 +20,17 @@ Route::get('/game/edit/{id}','GameController@edit');
 //working here
 Route::get('/game/confirm/{id}','GameController@confirm');
 Route::get('/game/delete/{id}','GameController@delete');
+Route::get('/add/game','GameController@addGame');
+Route::post('/create/game','Gamecontroller@createGame');
+
 Route::get('/newgame', 'GameController@create');
 Route::get('/newgame2', 'GameController@create2');
 Route::get('/user/{name}', 'UserController@show');
 Route::get('/users', 'UserController@index');
 
 Route::get('/practice','UserController@practice');
+Route::get('/add/user','UserController@addUser');
+Route::post('/create/user','Usercontroller@createUser');
 
 Route::get('/debug', function () {
 

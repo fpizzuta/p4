@@ -40,15 +40,31 @@ class UserController extends Controller
         return view('users.showAll');
     }
 
-    public function practice()
+    public function addUser()
     {
-//        $data= Record::find(2)->players;
-//        foreach ($data as $record)
-//        {
-//            dump($record->player_id);
-//        }
-        $players = Player::orderBy('userName')->get();
-        return view('users.showAll')->with(['players' => $players]);
-
+        return view('users.addUser');
     }
+
+    public function createUser(Request $request)
+    {
+        $request->validate([
+            'user' => 'required',
+        ]);
+        $player = new Player();
+        $player->userName = $request->user;
+        $player->save();
+        return redirect('/users/')->with(['alert' => $request->user.' created.']);
+    }
+
+//    public function practice()
+//    {
+////        $data= Record::find(2)->players;
+////        foreach ($data as $record)
+////        {
+////            dump($record->player_id);
+////        }
+//        $players = Player::orderBy('userName')->get();
+//        return view('users.showAll')->with(['players' => $players]);
+//
+//    }
 }

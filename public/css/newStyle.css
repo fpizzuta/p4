@@ -417,3 +417,30 @@ input.edit-button:hover {
 .wrapper * a:hover {
     color:yellow;
 }
+
+/*.list-header-plus{*/
+    /*text-transform: capitalize;*/
+    /*color: #EDEBD4;*/
+    /*font-size: 1.3em;*/
+    /*padding: 10px;*/
+    /*margin: 1px;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: center;*/
+/*}*/
+
+
+#btn-plus {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+#btn-plus:hover {
+    background-color: RoyalBlue;
+}

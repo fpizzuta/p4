@@ -2,11 +2,8 @@
 
 @push('title')<title>All users</title>@endpush
 @push('styles')
-    {{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
-    {{--<link href='{{ asset('css/page.css') }}' rel='stylesheet'>--}}
-    {{--<link href='{{ asset('css/form.css') }}' rel='stylesheet'>--}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link href='{{ asset('css/newStyle.css') }}' rel='stylesheet'>
-
 @endpush
 
 @push('body')
@@ -26,6 +23,9 @@
                 @endforeach
             </div>
         </div>
+        <a href='/add/user' id="btn-plus">
+            <i class="fas fa-plus-circle"> Create User</i>
+        </a>
     </div>
 </div>
 @endpush

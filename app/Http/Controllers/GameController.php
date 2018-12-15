@@ -157,4 +157,22 @@ class GameController extends Controller
 
         return redirect("/games")->with(['alert'=>'Your record was created.']);
     }
+
+    public function addGame()
+    {
+        return view('games.addGame');
+    }
+
+    public function createGame(Request $request)
+    {
+        $request->validate([
+            'gameName' => 'required',
+        ]);
+        $game = new Game();
+        $game->gameName = $request->gameName;
+        $game->gameCover = '';
+        $game->createdBy = 1;
+        $game->save();
+        return redirect('/games')->with(['alert' => $request->gameName.' created.']);
+    }
 }
