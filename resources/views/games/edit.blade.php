@@ -20,7 +20,7 @@
             <form id='edit' method='POST' action='/update/{{$record->record_id}}'>
                 @csrf
                 <div class='list-item'>
-                    <span>
+                    {{--<span>--}}
                         <div>
                             <select name='game_id'>
                                 <option value=''>Choose one...</option>
@@ -30,13 +30,13 @@
                             </select>
                             @include('modules.field-error', ['field' => 'game_id'])
                         </div>
-                    </span>
-                    <span>
+                    {{--</span>--}}
+                    {{--<span>--}}
                         <div>
                              <input id='date' type="date" name="date" value="{{$record->date}}">
                             @include('modules.field-error', ['field' => 'date'])
                         </div>
-                    </span>
+                    {{--</span>--}}
                 </div>
 
 

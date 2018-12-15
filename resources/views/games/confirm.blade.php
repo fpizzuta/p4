@@ -21,7 +21,7 @@
                 <iframe src="https://giphy.com/embed/3oEjHLzm4BCF8zfPy0"
                         width="480"
                         height="251"
-                        frameBorder="0"
+                        {{--frameBorder="0"--}}
                         class="giphy-embed"
                         allowFullScreen></iframe>
             </div>
