@@ -42,6 +42,7 @@ __Delete__
 + <https://fontawesome.com/how-to-use/on-the-web/setup/getting-started>
 
 ## Code style divergences
++ There is an html validation warning around using input type of date. This is fine in chrome and decided to ignore moving to polyfill.
 
 ## Notes for instructor
 +I had a heck of a time with relationships. I wamted my primary key in Records to be the foreign key for Recordplayers. Turns out you cant be both in eloquent. I am happy that i figure out a way around it but i wonder if i missed out on how relationships could help.

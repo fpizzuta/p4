@@ -13,7 +13,7 @@
         @csrf
         <div class="form-group">
             <label class='labels' for='user'>User Name *</label>
-            <input type="text" class='form-control' name="user" placeholder="User Name" value="{{ old('user') }}">
+            <input type="text" id='user' class='form-control' name="user" placeholder="User Name" value="{{ old('user') }}">
             @include('modules.field-error', ['field' => 'user'])
         </div>
         <div id='button'>
