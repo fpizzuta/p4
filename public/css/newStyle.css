@@ -216,7 +216,7 @@ input {
 
 .list-header {
     text-transform: capitalize;
-    color: #EDEBD4;
+    color: #A13D0B;
     font-size: 1.3em;
     padding: 10px;
     margin: 1px;
@@ -225,7 +225,8 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     border-bottom: solid;
-    border-color: #EDEBD4;
+    background-color:white  ;
+    /*border-color: #EDEBD4;*/
 }
 
 #gameDate {
@@ -252,7 +253,7 @@ a:link {
 
 .error {
     color: red;
-    font-size: 1em;
+    font-size: .7em;
     background-color: #EDEBD4;
 }
 
@@ -270,6 +271,7 @@ a:link {
 .edit-list {
     display: flex;
     flex-direction: column;
+
 }
 
 .edit-list-item {
@@ -283,6 +285,8 @@ a:link {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    width:100%;
+
 }
 
 .edit-list-header {
@@ -360,11 +364,13 @@ select {
     font-size: 1.1em;
     margin-right: 15px;
     margin-top: 15px;
+    background-color: white;
+    color:#A13D0B;
 
 }
 
 input.edit-button:hover {
-    color: yellow;
+    background-color: yellow;
 }
 
 .alert {

@@ -62,7 +62,7 @@ class GameController extends Controller
     {
         $players = Player::orderBy('userName')->get();
         $games = Game::orderBy('gameName')->get();
-        return view('games.create')->with(['players' => $players, 'games' => $games]);
+        return view('games.create2')->with(['players' => $players, 'games' => $games]);
     }
 
     public function makeArray($request)
