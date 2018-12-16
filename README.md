@@ -10,7 +10,7 @@ Primary tables:
   + `records`
   
 Pivot table(s):
-  + `Records`
+  + `recordplayers`
 
 
 ## CRUD
