@@ -53,7 +53,7 @@ class UserController extends Controller
         $player = new Player();
         $player->userName = $request->user;
         $player->save();
-        return redirect('/users/')->with(['alert' => $request->user.' created.']);
+        return redirect('/users')->with(['alert' => $request->user.' created.']);
     }
 
 //    public function practice()
