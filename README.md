@@ -39,9 +39,9 @@ __Delete__
 ## Outside resources
 + <https://giphy.com/gifs/airplane-i-am-serious-surely-you-cant-be-3oEjHLzm4BCF8zfPy0/embed>
 + <https://laracasts.com/discuss/channels/laravel/how-to-add-a-new-element-to-every-item-of-collection?page=1>
++ <https://fontawesome.com/how-to-use/on-the-web/setup/getting-started>
 
 ## Code style divergences
-*List any divergences from PSR-1/PSR-2 and course guidelines on code style*
 
 ## Notes for instructor
 +I had a heck of a time with relationships. I wamted my primary key in Records to be the foreign key for Recordplayers. Turns out you cant be both in eloquent. I am happy that i figure out a way around it but i wonder if i missed out on how relationships could help.
