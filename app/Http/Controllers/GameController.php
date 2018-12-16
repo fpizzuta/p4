@@ -182,3 +182,4 @@ class GameController extends Controller
         return redirect('/list')->with(['alert' => $request->gameName.' created.']);
     }
 }
+

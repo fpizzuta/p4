@@ -30,7 +30,7 @@ Route::get('/newRecord', 'GameController@create');
 Route::get('/user/{name}', 'UserController@show');
 Route::get('/users', 'UserController@index');
 
-Route::get('/practice','UserController@practice');
+Route::get('/practice','GameController@practice');
 Route::get('/add/user','UserController@addUser');
 Route::post('/create/user','UserController@createUser');
 
