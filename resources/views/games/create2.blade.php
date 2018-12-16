@@ -35,7 +35,7 @@
                         @for($i=1;$i<=4;$i++)
                             <div class="edit-list-item">
                                 <select name='p{{$i}}_Name' class='form-control'>
-                                    <option value='' disable selected>Player {{$i}}</option>
+                                    <option value=''>Player {{$i}}</option>
                                     @foreach($players as $player)
                                         <option value='{{$player->player_id}}' {{(old('p'.$i.'_Name') == $player->player_id) ? 'selected' : '' }}>{{$player->userName}}</option>
                                     @endforeach
