@@ -2,7 +2,7 @@
 
 @push('title')<title>Create Game Record</title>@endpush
 @push('styles')
- 
+
     <link href='{{ asset('css/newStyle.css') }}' rel='stylesheet'>
 @endpush
 
@@ -52,6 +52,7 @@
                             <label class="form-check-label" for='p1_Winner'>
                                 <input class="form-check-input"
                                        type="checkbox"
+                                       id='p1_Winner'
                                        name="p1_Winner"
                                        value=1 {{ (old('p1_Winner') == 1) ? 'checked':'' }}/>
                                 Winner
