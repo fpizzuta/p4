@@ -16,19 +16,19 @@ Pivot table(s):
 ## CRUD
 
 __Create__
-  + Visit <http://p4.pizzuta.com/newgame>
+  + Visit <http://p4.pizzuta.com/newRecord>
   + Fill out form
   + Click *Create*
-  *Observe confirmation message*
+  + You are returned to record list and see alert at top.
   
 __Read__
-  + Visit <http://p4.pizzuta.com/games> see a listing of all games played
+  + Visit <http://p4.pizzuta.com/games> see a record of all games played
   
 __Update__
   + Visit <http://p4.pizzuta.com/games/3>; click Edit next to the scoring table
   + Make some edit to form
   + Click *Save*
-  + You are returned to original screen and can see changes
+  + You are returned to original screen, can see changes and alert
   
 __Delete__
   + Visit <http://p4.pizzuta.com/games/3>; click Delete next to the scoring table
