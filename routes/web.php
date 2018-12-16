@@ -21,7 +21,7 @@ Route::get('/game/edit/{id}','GameController@edit');
 Route::get('/game/confirm/{id}','GameController@confirm');
 Route::get('/game/delete/{id}','GameController@delete');
 Route::get('/add/game','GameController@addGame');
-Route::post('/create/game','Gamecontroller@createGame');
+Route::post('/create/game','GameController@createGame');
 
 Route::get('/newgame', 'GameController@create');
 Route::get('/newgame2', 'GameController@create2');
@@ -30,7 +30,7 @@ Route::get('/users', 'UserController@index');
 
 Route::get('/practice','UserController@practice');
 Route::get('/add/user','UserController@addUser');
-Route::post('/create/user','Usercontroller@createUser');
+Route::post('/create/user','UserController@createUser');
 
 Route::get('/debug', function () {
 
