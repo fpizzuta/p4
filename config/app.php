@@ -3,8 +3,8 @@
 return [
 
     'nav' => [
-        '/games' => 'Games',
-        '/newgame' => 'New Game Record',
+        '/games' => 'Records',
+        '/list' => 'Games',
         '/users' => 'Users',
     ],
     /*

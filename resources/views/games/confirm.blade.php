@@ -16,28 +16,28 @@
 
 @push('body')
 
-        <div class='center'>
-            <div class='center-item'>
-                <iframe src="https://giphy.com/embed/3oEjHLzm4BCF8zfPy0"
-                        width="480"
-                        height="251"
-                        {{--frameBorder="0"--}}
-                        class="giphy-embed"
-                        allowFullScreen></iframe>
-            </div>
-
-            <div class='center-item'>
-                <a href="https://giphy.com/gifs/airplane-i-am-serious-surely-you-cant-be-3oEjHLzm4BCF8zfPy0">via GIPHY</a>
-            </div>
-            <div class='center-item'>Are you positive you want to delete</div>
-            <div class='center-item'>{{$record->game->gameName}} played on {{$record->date}}</div>
-            <div class='center-item confirmDelete'>
-                <a href='/game/delete/{{$record->record_id}}'>Shirley, delete it!</a>
-            </div>
-            <div class='center-item cancel'>
-                <a href='/games/{{$record->record_id}}'>No thanks.</a>
-            </div>
+    <div class='center'>
+        <div class='center-item'>
+            <iframe src="https://giphy.com/embed/3oEjHLzm4BCF8zfPy0"
+                    width="480"
+                    height="251"
+                    {{--frameBorder="0"--}}
+                    class="giphy-embed"
+                    allowFullScreen></iframe>
         </div>
+
+        <div class='center-item'>
+            <a href="https://giphy.com/gifs/airplane-i-am-serious-surely-you-cant-be-3oEjHLzm4BCF8zfPy0">via GIPHY</a>
+        </div>
+        <div class='center-item'>Are you positive you want to delete</div>
+        <div class='center-item'>{{$record->game->gameName}} played on {{$record->date}}</div>
+        <div class='center-item confirmDelete'>
+            <a href='/game/delete/{{$record->record_id}}'>Shirley, delete it!</a>
+        </div>
+        <div class='center-item cancel'>
+            <a href='/games/{{$record->record_id}}'>No thanks.</a>
+        </div>
+    </div>
 
 
 @endpush

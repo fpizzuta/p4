@@ -21,20 +21,21 @@
                 <div class='list'>
                     <div class="list-header">Title</div>
                     @foreach($data as $game)
-                        <div class="list-item">{{$game->gameName}}</div>
+                        <div class="list-item"><a target="_self"
+                                                  href="games/{{$game->record_id}}">{{$game->game->gameName}}</a></div>
                     @endforeach
                 </div>
             </div>
-            {{--<div class='list-container'>--}}
-                {{--<div class='list'>--}}
-                    {{--<div class="list-header">Date</div>--}}
-                    {{--@foreach($data as $game)--}}
-                        {{--<div class="list-item">{{$game->date}}</div>--}}
-                    {{--@endforeach--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            <a href='/add/game' id="btn-plus">
-                <i class="fas fa-plus-circle"> Create Game</i>
+            <div class='list-container'>
+                <div class='list'>
+                    <div class="list-header">Date</div>
+                    @foreach($data as $game)
+                        <div class="list-item">{{$game->date}}</div>
+                    @endforeach
+                </div>
+            </div>
+            <a href='/newRecord' id="btn-plus">
+                <i class="fas fa-plus-circle"> Create Record</i>
             </a>
         </div>
     </div>

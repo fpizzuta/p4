@@ -6,6 +6,6 @@
     @stack('styles')
 </head>
 <body>
-    @stack('body')
+@stack('body')
 </body>
 </html>

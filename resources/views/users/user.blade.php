@@ -7,5 +7,5 @@
 @endpush
 
 @push('body')
-    <h1>Show user @if ($name != ""){{ $name }}@endif  here</h1>
+    <h1>Show user @if ($name != ""){{ $name }}@endif here</h1>
 @endpush

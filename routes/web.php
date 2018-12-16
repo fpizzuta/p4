@@ -17,14 +17,16 @@ Route::post('/games', 'GameController@store');
 Route::post('/update/{record_id}', 'GameController@update');
 Route::get('/games/{title}', 'GameController@show');
 Route::get('/game/edit/{id}','GameController@edit');
+Route::get('/list','GameController@gamesList');
+
 //working here
 Route::get('/game/confirm/{id}','GameController@confirm');
 Route::get('/game/delete/{id}','GameController@delete');
 Route::get('/add/game','GameController@addGame');
 Route::post('/create/game','GameController@createGame');
 
-Route::get('/newgame', 'GameController@create');
-Route::get('/newgame2', 'GameController@create2');
+Route::get('/newRecord', 'GameController@create');
+//Route::get('/newgame2', 'GameController@create2');
 Route::get('/user/{name}', 'UserController@show');
 Route::get('/users', 'UserController@index');
 

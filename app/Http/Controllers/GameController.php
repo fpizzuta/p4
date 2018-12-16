@@ -18,6 +18,12 @@ class GameController extends Controller
 
         $data = Record::orderBy('date','desc')->with('game')->get();
 
+        return view('games.showRecords')->with('data', $data);
+    }
+
+    public function gamesList()
+    {
+        $data = Game::orderBy('gameName','asc')->get();
         return view('games.showAll')->with('data', $data);
     }
 
@@ -173,6 +179,6 @@ class GameController extends Controller
         $game->gameCover = '';
         $game->createdBy = 1;
         $game->save();
-        return redirect('/games')->with(['alert' => $request->gameName.' created.']);
+        return redirect('/list')->with(['alert' => $request->gameName.' created.']);
     }
 }
