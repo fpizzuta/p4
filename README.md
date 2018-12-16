@@ -44,6 +44,6 @@ __Delete__
 + There is an html validation warning around using input type of date. This is fine in chrome and decided to ignore moving to polyfill.
 
 ## Notes for instructor
-+ I had a heck of a time with relationships. I wamted my primary key in Records to be the foreign key for Recordplayers. Turns out you cant be both in eloquent. I am happy that i figure out a way around it but i wonder if i missed out on how relationships could help.
++ I had a heck of a time with relationships. I wanted my primary key in Records to be the foreign key for Recordplayers. Turns out you cant be both in eloquent. I am happy that i figure out a way around it but i wonder if i missed out on how relationships could help.
 + I have no idea why i named the one table and object recordplayers instead of playerrecords. By the time i realized it i was too far in to it and was afraid of breaking everything if i tried to refactor. 
 + I really want to do authentication but i just dont have enough time. Taking two classes while working full time was insane. My login screen is still there but i just bypassed it for now.
